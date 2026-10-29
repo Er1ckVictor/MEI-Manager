@@ -15,7 +15,7 @@ export default function Privacidade() {
       <h1>Política de Privacidade</h1>
       <p>Última atualização: 29 de outubro de 2026.</p>
       <p>
-        Esta política explica como o site {site.name}, mantido por {site.empresa}, CNPJ {site.cnpj}, trata dados pessoais,
+        Esta política explica como o site {site.name}, mantido por {site.empresa}{site.cnpj ? `, CNPJ ${site.cnpj}` : ""}, trata dados pessoais,
         de acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).
       </p>
 

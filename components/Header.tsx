@@ -30,6 +30,7 @@ export default function Header({ price }: { price: string }) {
           MEI no Controle
         </a>
         <nav className="nav" aria-label="Seções da página">
+          <a href="#graficos">Gráficos</a>
           <a href="#recursos">Recursos</a>
           <a href="#simulador">Simulador</a>
           <a href="#oferta">Preço</a>

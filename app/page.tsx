@@ -11,6 +11,8 @@ import ModuleTabs from "@/components/ModuleTabs";
 import Countdown from "@/components/Countdown";
 import MobileBar from "@/components/MobileBar";
 import Consent from "@/components/Consent";
+import DashboardDemo from "@/components/DashboardDemo";
+import ChaosToOrder from "@/components/ChaosToOrder";
 import { PromoProvider, Price, IfPromo, IfNotPromo } from "@/components/Promo";
 
 // Gera a página de novo a cada 10 minutos, para o preço e os dados do Google
@@ -96,6 +98,10 @@ export default function Home() {
                 <span className="ico" style={{ background: "rgba(70,199,202,.15)", color: "var(--teal)" }}><Icon name="calendar" size={16} /></span>
                 <span>DAS de janeiro pago<small>Próximo vencimento: dia 20</small></span>
               </div>
+              <div className="chip chip-4" aria-hidden="true">
+                <span className="mini-bars">{[30, 52, 44, 72, 96].map((h, k) => <i key={k} style={{ height: h + "%", ["--k" as string]: k }} />)}</span>
+                <span>Faturamento de fevereiro<small>▲ 98% vs mês anterior</small></span>
+              </div>
               <div className="device" id="device">
                 <div className="dots" aria-hidden="true"><i /><i /><i /></div>
                 <Image
@@ -145,6 +151,30 @@ export default function Home() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ORGANIZAÇÃO */}
+        <section className="band band-alt" aria-labelledby="org-t">
+          <div className="wrap">
+            <div className="head reveal">
+              <span className="eyebrow">Organização</span>
+              <h2 id="org-t">Do caos à clareza em poucos minutos</h2>
+              <p className="lead">Sem controle, as contas da empresa e as da casa viram uma coisa só. Com a planilha, cada gasto vai para o lugar certo e você vê na hora quanto entrou, quanto saiu e quanto sobra.</p>
+            </div>
+            <ChaosToOrder />
+          </div>
+        </section>
+
+        {/* GRÁFICOS */}
+        <section className="band" id="graficos" aria-labelledby="graf-t">
+          <div className="wrap">
+            <div className="head reveal">
+              <span className="eyebrow">Gráficos automáticos</span>
+              <h2 id="graf-t">Seus números ganham forma sozinhos</h2>
+              <p className="lead">Você só registra entradas e saídas. A planilha monta os gráficos de faturamento, despesas e limite do MEI, mês a mês.</p>
+            </div>
+            <DashboardDemo />
           </div>
         </section>
 
@@ -293,7 +323,7 @@ export default function Home() {
 
       <footer className="foot">
         <div className="wrap">
-          <span>© {new Date().getFullYear()} {site.name} · {site.empresa} · CNPJ {site.cnpj}</span>
+          <span>© {new Date().getFullYear()} {site.name} · {site.empresa}{site.cnpj ? `${site.cnpj.trim() == "" ? "" : `· CNPJ ${site.cnpj}`}` : ""}</span>
           <span>Atendimento: {site.email} · <a href="/politica-de-privacidade">Política de privacidade</a></span>
           <p>Esta planilha é uma ferramenta de organização financeira e não substitui a orientação de um contador. Valores de referência do MEI: Portal do Empreendedor (gov.br).</p>
         </div>
